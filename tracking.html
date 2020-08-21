@@ -11,46 +11,48 @@
     <title>JavaScript Geolocation API!</title>
 </head>
 <body>
-
 <div class="container">
-
-    <div class="row">
-        <div class="col-md-12">
-            <div class="text-center">
-                <h1>JavaScript Geolocation API</h1><small>Track your location</small>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <button id="start" type="button" class="btn btn-success">Success</button>
-        <button id="stop" type="button" class="btn btn-danger">Danger</button>
+    <div class="jumbotron">
+        <h1>JavaScript Geolocation API</h1><small>Track your location</small>
+        <p class="lead">Consent to collect location data. Collection and storage of location data.</p>
+        <a class="btn btn-lg btn-primary" href="index.html" role="button">View in map »</a>
     </div>
 </div>
-
-
+<div class="container">
+    <div class="row">
+        <button id="start" type="button" class="btn btn-success">Start tracking</button>
+        <button id="stop" type="button" class="btn btn-danger">Stop tracking</button>
+    </div>
+</div>
 <script>
     const start = document.querySelector('#start');
     const stop = document.querySelector('#stop');
     const coordinates = [];
 
     start.addEventListener("click", function(){
-        navigator.geolocation.watchPosition(data=>{
-                console.log(data);
-                coordinates.push([data.coords.latitude, data.coords.longitude]);
-                window.localStorage.setItem(
-                    "coordinates",
-                    JSON.stringify(coordinates)
+        navigator.geolocation.watchPosition(data=> {
+            console.log(data);
+            coordinates.push([data.coords.latitude, data.coords.longitude]);
+
+
+            start.addEventListener("click", function () {
+                navigator.geolocation.watchPosition(data => {
+                        console.log(data);
+                        coordinates.push([data.coords.latitude, data.coords.longitude]);
+                        window.localStorage.setItem(
+                            "coordinates",
+                            JSON.stringify(coordinates)
+                        );
+                    },
+                    error => console.log(error),
+                    {
+                        enableHighAccuracy: true
+                    }
                 );
-            },
-            error => console.log(error),
-            {
-                enableHighAccuracy: true
-            }
-        );
+            });
+        })
     });
 </script>
-
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

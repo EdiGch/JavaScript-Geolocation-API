@@ -7,37 +7,22 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
     <title>JavaScript Geolocation API!</title>
 </head>
 <body>
-
 <div class="container">
-
-    <div class="row">
-        <div class="col-md-12">
-            <div class="text-center">
-                <h1>JavaScript Geolocation API</h1><small>Track your location</small>
-            </div>
-        </div>
+    <div class="jumbotron">
+        <h1>JavaScript Geolocation API</h1><small>Track your location</small>
+        <a class="btn btn-lg btn-primary" href="tracking.html" role="button">Collect location data »</a>
     </div>
-
-    <div class="row">
-        <button id="start" type="button" class="btn btn-success">Success</button>
-        <button id="stop" type="button" class="btn btn-danger">Danger</button>
-    </div>
-
-    <div class="row">
-        <div id="map" style='width: 400px; height: 300px;'></div>
-    </div>
-
 
 </div>
-
-
-<script>
-
-</script>
+<div class="container">
+    <div class="row">
+        <div id="map" style='width: 800px; height: 800px;'></div>
+    </div>
+</div>
 <script src="source/app.js" type="module"></script>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
